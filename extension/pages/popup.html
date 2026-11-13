@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="popup-head">
+    <img id="logo" src="../icons/shield.svg" alt="" width="30" height="30">
+    <div class="title">
+      <h1>Study Mode</h1>
+      <p id="statusText" class="muted small">Blocking distractions</p>
+    </div>
+    <span class="always-on" title="Study Mode is always on">ON</span>
+  </header>
+
+  <section id="managedCard" class="card managed" hidden>
+    <p id="managedCountdownLabel" class="small muted" hidden>Time until protection can be turned off</p>
+    <p id="managedCountdown" class="managed-countdown" hidden>0:00:00</p>
+    <p id="managedDetail" class="small"></p>
+    <p id="managedVerify" class="error small" hidden></p>
+    <button id="openProtectionApp" class="link small">Open Study Mode Protection</button>
+  </section>
+
+  <section class="card site">
+    <p class="small muted">Current site</p>
+    <p id="siteHost" class="site-host">—</p>
+    <p id="siteState" class="site-state"></p>
+    <button id="blockSiteBtn" class="danger" hidden>Block this site</button>
+  </section>
+
+  <section class="stats">
+    <div class="card stat"><strong id="statToday">0</strong><span>blocked today</span></div>
+    <div class="card stat"><strong id="statTotal">0</strong><span>blocked in total</span></div>
+  </section>
+
+  <div id="warnings"></div>
+
+  <footer>
+    <button id="openOptions" class="link">Settings</button>
+  </footer>
+
+  <script src="../lib/defaults.js"></script>
+  <script src="../lib/matcher.js"></script>
+  <script src="../lib/settings.js"></script>
+  <script src="warnings.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

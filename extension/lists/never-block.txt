@@ -1,0 +1,43 @@
+# Study Mode safety list (hand-maintained)
+# Study and work essentials that the built-in list may never block as a whole site.
+# If a list ever contains one of these exact domains, that entry is dropped. You can still block any
+# of these yourself under Blocked sites, and list entries for a specific subdomain still apply.
+
+# Search, mail and cloud
+google.com
+googleapis.com
+googleusercontent.com
+gstatic.com
+gmail.com
+bing.com
+duckduckgo.com
+microsoft.com
+live.com
+outlook.com
+office.com
+microsoft365.com
+apple.com
+icloud.com
+dropbox.com
+zoom.us
+
+# Learning and reference
+wikipedia.org
+wikimedia.org
+khanacademy.org
+bbc.co.uk
+stackoverflow.com
+github.com
+github.io
+githubusercontent.com
+mozilla.org
+youtube.com
+youtu.be
+
+# Content delivery networks (blocking these would break unrelated sites)
+amazonaws.com
+cloudfront.net
+cloudflare.com
+akamaihd.net
+akamaized.net
+fastly.net

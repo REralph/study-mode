@@ -1,0 +1,17 @@
+{
+  "name": "firefox-study-mode",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Firefox extension that blocks TikTok and other distracting websites while you study.",
+  "scripts": {
+    "test": "node --test \"test/unit/*.test.js\"",
+    "test:e2e": "node test/e2e/run.mjs",
+    "test:e2e:protection": "node test/e2e/protection.mjs",
+    "lint": "web-ext lint --source-dir extension",
+    "start": "web-ext run --source-dir extension",
+    "build": "web-ext build --source-dir extension --artifacts-dir dist --overwrite-dest"
+  },
+  "devDependencies": {
+    "web-ext": "^10.7.0"
+  }
+}

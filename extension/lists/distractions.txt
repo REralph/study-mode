@@ -1,0 +1,44 @@
+# Study Mode built-in distraction list (hand-maintained)
+# List-date: 2026-11-13
+# One site per line. Each entry also blocks its subdomains (www., m., and so on).
+# Need one of these for a course? Add it under Exceptions in the settings instead of editing this file.
+# YouTube is left out on purpose because so much coursework lives there: block just youtube.com/shorts
+# in your own list if you like.
+
+# Short video and social media
+tiktok.com
+tiktokv.com
+tiktokcdn.com
+instagram.com
+cdninstagram.com
+snapchat.com
+facebook.com
+fb.com
+messenger.com
+x.com
+twitter.com
+threads.net
+bsky.app
+reddit.com
+redd.it
+tumblr.com
+pinterest.com
+9gag.com
+bereal.com
+
+# Streaming and live video
+twitch.tv
+kick.com
+netflix.com
+disneyplus.com
+primevideo.com
+crunchyroll.com
+
+# Browser games
+roblox.com
+poki.com
+crazygames.com
+miniclip.com
+friv.com
+kongregate.com
+y8.com

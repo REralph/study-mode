@@ -1,0 +1,50 @@
+body {
+  width: 330px;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.popup-head { display: flex; align-items: center; gap: 10px; }
+.popup-head .title { flex: 1; }
+h1 { font-size: 16px; }
+
+.password-card { padding: 12px; display: grid; gap: 6px; }
+.password-row { display: flex; gap: 6px; }
+.password-row button { flex: none; }
+
+.site { padding: 12px; display: grid; gap: 2px; }
+.site-host { font-weight: 600; font-size: 15px; overflow-wrap: anywhere; }
+.site-state { color: var(--muted); font-size: 13px; }
+.site-state.blocked { color: var(--danger); font-weight: 600; }
+.site button { margin-top: 8px; justify-self: start; }
+
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stat { padding: 10px 12px; }
+.stat strong { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 12.5px; }
+
+#warnings:empty { display: none; }
+
+body.off .site, body.off .stats { opacity: .7; }
+
+.always-on {
+  flex: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--on-accent);
+  background: var(--ok, #2e9e5b);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.managed { padding: 12px; display: grid; gap: 6px; }
+.managed-countdown {
+  font-size: 30px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  margin: 2px 0;
+}
+.managed button { justify-self: start; }

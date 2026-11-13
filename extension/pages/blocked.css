@@ -1,0 +1,33 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.blocked {
+  width: min(480px, 100%);
+  padding: 36px 32px 28px;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.blocked h1 { font-size: 24px; }
+
+.details {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 14px;
+  text-align: left;
+  font-size: 13px;
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.details dt { color: var(--muted); }
+.details dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+
+.actions { display: flex; gap: 8px; margin-top: 4px; }

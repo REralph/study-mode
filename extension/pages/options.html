@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Mode settings</title>
+  <link rel="icon" href="../icons/shield.svg">
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div id="lockScreen" class="lock-screen" hidden>
+    <form id="unlockForm" class="card lock-card">
+      <img src="../icons/shield.svg" alt="" width="48" height="48">
+      <h1>Settings are locked</h1>
+      <p class="muted">Enter the password to change Study Mode's settings.</p>
+      <input type="password" id="unlockPassword" autocomplete="current-password" aria-label="Password" required>
+      <p id="unlockError" class="error" hidden>Wrong password.</p>
+      <button type="submit" class="primary">Unlock</button>
+    </form>
+  </div>
+
+  <main id="main" hidden>
+    <header class="page-head">
+      <img src="../icons/shield.svg" alt="" width="40" height="40">
+      <div>
+        <h1>Study Mode</h1>
+        <p class="muted">Settings</p>
+      </div>
+    </header>
+
+    <section id="welcome" class="card notice" hidden>
+      <h2>Study Mode is on</h2>
+      <p>TikTok, Instagram and other distracting sites are now blocked while you study. Add your own sites below, or make exceptions.</p>
+    </section>
+
+    <div id="warnings"></div>
+
+    <section class="card">
+      <h2>Blocking</h2>
+      <p class="always-on-note">Study Mode is always on. Blocking can't be switched off from here.</p>
+      <div class="toggle-row depends">
+        <div class="toggle-text">
+          <label for="opt-builtin"><strong>Built-in distraction list</strong></label>
+          <p class="muted"><span id="builtinCount">Dozens of</span> distracting sites included with the extension<span id="builtinDate"></span>: short-video and social media apps, streaming and browser games. Each entry also blocks its subdomains. Works offline.</p>
+        </div>
+        <label class="switch"><input type="checkbox" id="opt-builtin" data-setting="useBuiltinList"><span class="slider" aria-hidden="true"></span></label>
+      </div>
+      <div class="toggle-row depends">
+        <div class="toggle-text">
+          <label for="opt-keywords"><strong>Block site addresses containing keywords</strong></label>
+          <p class="muted">Catches mirror and look-alike sites that aren't on any list.</p>
+        </div>
+        <label class="switch"><input type="checkbox" id="opt-keywords" data-setting="keywordBlocking"><span class="slider" aria-hidden="true"></span></label>
+      </div>
+      <div class="toggle-row depends">
+        <div class="toggle-text">
+          <label for="opt-search"><strong>Block searches containing keywords</strong></label>
+          <p class="muted">Stops "just one quick search" on Google, Bing, DuckDuckGo, Yahoo, YouTube, Brave, Ecosia, Startpage, Yandex, Reddit and X.</p>
+        </div>
+        <label class="switch"><input type="checkbox" id="opt-search" data-setting="searchBlocking"><span class="slider" aria-hidden="true"></span></label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Blocked sites</h2>
+      <p class="muted">One per line. <code>example.com</code> blocks the site and all its subdomains; <code>youtube.com/shorts</code> blocks just that section.</p>
+      <textarea id="customBlock" rows="7" spellcheck="false" placeholder="youtube.com/shorts"></textarea>
+      <div class="actions">
+        <button type="button" class="primary" data-save="customBlock">Save</button>
+        <span id="customBlockStatus" class="save-status" role="status"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Exceptions</h2>
+      <p class="muted">Sites that should stay reachable. One per line, written the same way as Blocked sites.</p>
+      <textarea id="allow" rows="5" spellcheck="false" placeholder="reddit.com/r/learnprogramming"></textarea>
+      <div class="actions">
+        <button type="button" class="primary" data-save="allow">Save</button>
+        <span id="allowStatus" class="save-status" role="status"></span>
+      </div>
+      <h3 class="rules-title">When an exception and a block entry both match</h3>
+      <ol class="rules">
+        <li><strong>The more specific entry wins.</strong> An exception for <code>example.com</code> unblocks it and its subdomains, but a block entry for <code>games.example.com</code>, yours or the built-in list's, still blocks that subdomain. A section such as <code>example.com/videos</code> is more specific than the whole site.</li>
+        <li><strong>Same site on an exception and the built-in list:</strong> the exception wins. Use this to unblock a site you need for a course.</li>
+        <li><strong>Same site on an exception and your Blocked sites:</strong> blocking wins.</li>
+        <li>An exception also turns off keyword matching in that site's address. Searches are still checked.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Keywords</h2>
+      <p class="muted">Matched anywhere in site addresses and search queries, so short or common words cause false blocks. One per line, at least 3 characters.</p>
+      <textarea id="keywords" rows="6" spellcheck="false"></textarea>
+      <div class="actions">
+        <button type="button" class="primary" data-save="keywords">Save</button>
+        <button type="button" id="keywordsReset">Restore defaults</button>
+        <span id="keywordsStatus" class="save-status" role="status"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Password lock</h2>
+      <p id="lockState" class="muted"></p>
+      <form id="passwordForm" class="password-grid">
+        <input type="password" id="newPassword" placeholder="New password" aria-label="New password" autocomplete="new-password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm password" aria-label="Confirm password" autocomplete="new-password" required>
+        <div class="actions">
+          <button type="submit" id="setPasswordBtn" class="primary">Set password</button>
+          <button type="button" id="removePasswordBtn" class="danger-outline" hidden>Remove password</button>
+          <span id="passwordStatus" class="save-status" role="status"></span>
+        </div>
+      </form>
+      <p class="muted small note">A password stops impulsive changes, for example when a friend or a parent keeps it. Anyone with access to Firefox's Add-ons page can still remove the extension; the README explains how to lock it in place with a Firefox policy.</p>
+    </section>
+
+    <footer class="muted small">Study Mode <span id="version"></span></footer>
+  </main>
+
+  <script src="../lib/defaults.js"></script>
+  <script src="../lib/matcher.js"></script>
+  <script src="../lib/settings.js"></script>
+  <script src="../lib/lock.js"></script>
+  <script src="warnings.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

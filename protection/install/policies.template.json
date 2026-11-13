@@ -1,0 +1,11 @@
+{
+  "policies": {
+    "ExtensionSettings": {
+      "study-mode@desktop.local": {
+        "installation_mode": "force_installed",
+        "install_url": "file:///__XPI_URL__",
+        "private_browsing": true
+      }
+    }
+  }
+}

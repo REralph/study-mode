@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "Study Mode",
+  "version": "1.0.0",
+  "description": "Blocks TikTok, Instagram and other distracting websites while you study.",
+  "icons": {
+    "48": "icons/shield.svg",
+    "96": "icons/shield.svg"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "study-mode@desktop.local",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "alarms",
+    "nativeMessaging"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "lib/defaults.js",
+      "lib/matcher.js",
+      "lib/lists.js",
+      "lib/settings.js",
+      "lib/protection.js",
+      "background.js"
+    ]
+  },
+  "action": {
+    "default_title": "Study Mode",
+    "default_popup": "pages/popup.html",
+    "default_icon": "icons/shield.svg"
+  },
+  "options_ui": {
+    "page": "pages/options.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pages/blocked.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

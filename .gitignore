@@ -1,0 +1,8 @@
+node_modules/
+dist/
+web-ext-artifacts/
+
+# local build/sign state
+.amo-upload-uuid
+__pycache__/
+*.pyc

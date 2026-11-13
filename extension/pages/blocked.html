@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Back to studying</title>
+  <link rel="icon" href="../icons/shield.svg">
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="blocked.css">
+</head>
+<body>
+  <main class="card blocked">
+    <img src="../icons/shield.svg" alt="" width="64" height="64">
+    <h1>Back to studying</h1>
+    <p id="reason" class="muted">Study Mode stopped this distraction from loading.</p>
+    <dl id="details" class="details" hidden>
+      <dt>Site</dt><dd id="host"></dd>
+      <dt>Matched</dt><dd id="rule"></dd>
+    </dl>
+    <div class="actions">
+      <button id="backBtn" class="primary">Go back</button>
+      <button id="closeBtn">Close tab</button>
+    </div>
+    <button id="settingsLink" class="link small">Settings</button>
+  </main>
+  <script src="blocked.js"></script>
+</body>
+</html>

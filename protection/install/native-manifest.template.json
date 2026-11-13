@@ -1,0 +1,7 @@
+{
+  "name": "com.studymode.protection",
+  "description": "Study Mode Protection native host: lets the Firefox extension read protection status.",
+  "path": "__HOST_BAT__",
+  "type": "stdio",
+  "allowed_extensions": ["study-mode@desktop.local"]
+}
